@@ -1,0 +1,83 @@
+{
+  "pluginAlias": "1ControlPlatform",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Platform Name",
+        "type": "string",
+        "default": "1Control",
+        "required": true
+      },
+      "username": {
+        "title": "Username / Email",
+        "type": "string",
+        "required": true,
+        "description": "The email or username you use to log in to web.1control.eu"
+      },
+      "password": {
+        "title": "Password",
+        "type": "string",
+        "required": true,
+        "description": "Your password for web.1control.eu"
+      },
+      "buttons": {
+        "title": "Buttons",
+        "type": "array",
+        "items": {
+          "title": "Button",
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "Name (visible in HomeKit)",
+              "type": "string",
+              "required": true,
+              "placeholder": "e.g. Main Gate"
+            },
+            "selector": {
+              "title": "Card label (text shown on the device card)",
+              "type": "string",
+              "required": true,
+              "placeholder": "e.g. Gate, Garage, Barrier"
+            },
+            "pageUrl": {
+              "title": "Page URL (relative)",
+              "type": "string",
+              "default": "/",
+              "placeholder": "e.g. /web/it/#/device/XXXXX"
+            },
+            "resetDelay": {
+              "title": "Switch reset delay (ms)",
+              "type": "integer",
+              "default": 1500,
+              "description": "Milliseconds before the switch resets to OFF. Use -1 to disable auto-reset."
+            }
+          }
+        }
+      }
+    }
+  },
+  "layout": [
+    {
+      "type": "section",
+      "title": "1Control Credentials",
+      "items": ["username", "password"]
+    },
+    {
+      "type": "section",
+      "title": "Buttons",
+      "items": [{
+        "key": "buttons",
+        "type": "array",
+        "items": [
+          "buttons[].name",
+          "buttons[].selector",
+          "buttons[].pageUrl",
+          "buttons[].resetDelay"
+        ]
+      }]
+    }
+  ]
+}
