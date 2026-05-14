@@ -5,13 +5,13 @@
   "main": "src/index.js",
   "author": "miobio <06.esteso.mouse@icloud.com>",
   "license": "MIT",
-  "homepage": "https://github.com/YOURUSERNAME/homebridge-1control#readme",
+  "homepage": "https://github.com/miobio/homebridge-1control#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOURUSERNAME/homebridge-1control.git"
+    "url": "git+https://github.com/miobio/homebridge-1control.git"
   },
   "bugs": {
-    "url": "https://github.com/YOURUSERNAME/homebridge-1control/issues"
+    "url": "https://github.com/miobio/homebridge-1control/issues"
   },
   "keywords": [
     "homebridge-plugin",
