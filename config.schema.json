@@ -46,7 +46,7 @@
               "title": "Page URL (relative)",
               "type": "string",
               "default": "/",
-              "placeholder": "e.g. /web/it/#/device/XXXXX"
+              "placeholder": "e.g. /web/it/#/device/13274"
             },
             "resetDelay": {
               "title": "Switch reset delay (ms)",

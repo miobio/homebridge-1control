@@ -8,8 +8,6 @@ This plugin automatically logs in and simulates button clicks on the 1Control we
 
 ## How it works
 
-The Plug-In will create a switch. Every switch activation will trigger an "open" signal, pretty much like pushing your gate remote button. If you want to replicate a gate object on HomeKit I suggest you to use a dummy gate Plug-In and replicate its behaviour via HomeKit Automation. This is particularly useful for Siri otherwise the switch object is not perceived by Siri as a Gate...
-
 When you activate the switch in HomeKit (or via Siri), the plugin:
 
 1. Opens a headless browser session with `web.1control.eu`
@@ -61,21 +59,21 @@ Add the following to your Homebridge `config.json`:
       "password": "yourpassword",
       "buttons": [
         {
-          "name": "1Control accessory description here",
-          "selector": "Selector name e.g. Gate",
-          "pageUrl": "/web/it/#/device/XXXXX",
+          "name": "Main Gate",
+          "selector": "Gate",
+          "pageUrl": "/web/it/#/device/13274",
           "resetDelay": 1500
         },
         {
-          "name": "1Control accessory description here",
+          "name": "Garage",
           "selector": "Garage",
-          "pageUrl": "/web/it/#/device/XXXXX",
+          "pageUrl": "/web/it/#/device/13274",
           "resetDelay": 1500
         },
         {
-          "name": "1Control accessory description here",
+          "name": "Barrier",
           "selector": "Barrier",
-          "pageUrl": "/web/it/#/device/XXXXX",
+          "pageUrl": "/web/it/#/device/13274",
           "resetDelay": 1500
         }
       ]
@@ -90,9 +88,9 @@ Add the following to your Homebridge `config.json`:
 |-----------|------|:--------:|-------------|
 | `username` | string | ✅ | Your 1Control login email/username |
 | `password` | string | ✅ | Your 1Control login password |
-| `buttons` | array | ✅ | List of 1Control gates, barriers, garage doors etc. to expose to HomeKit |
+| `buttons` | array | ✅ | List of buttons to expose to HomeKit |
 | `buttons[].name` | string | ✅ | Name shown in the Home app (e.g. "Main Gate") |
-| `buttons[].selector` | string | ✅ | Exact text of the device card label on the web.1control.eu website |
+| `buttons[].selector` | string | ✅ | Exact text of the device card label on the website |
 | `buttons[].pageUrl` | string | ❌ | Relative URL of the device page (default: `/`) |
 | `buttons[].resetDelay` | number | ❌ | Ms before switch resets to OFF (default: `1500`, `-1` = never) |
 
@@ -100,11 +98,10 @@ Add the following to your Homebridge `config.json`:
 
 ## How to find the card label (selector)
 
-1. Open **web.1control.eu** in your browser and log in or register
-2. Add your device(s) following the online procedure
-3. Navigate to the device page
-4. Look at the label shown below each device icon — that is your `selector` value
-5. <Optional> For extra safety, Right-click → **Inspect** to confirm the text inside the `<span class="display-block">` element
+1. Open **web.1control.eu** in your browser and log in
+2. Navigate to the device page
+3. Look at the label shown below each device icon — that is your `selector` value
+4. Right-click → **Inspect** to confirm the text inside the `<span class="display-block">` element
 
 Example HTML:
 ```html
