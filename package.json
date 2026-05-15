@@ -1,6 +1,6 @@
 {
   "name": "homebridge-1control",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Homebridge plugin to control devices via the 1Control.eu web portal",
   "main": "src/index.js",
   "author": "miobio <06.esteso.mouse@icloud.com>",
